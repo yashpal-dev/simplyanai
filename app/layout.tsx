@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./styles/globals.css";
 import { Toaster } from "@/components/ui/toaster";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 // const inter = Inter({ subsets: ["latin"] });
 const poppins = Poppins({ subsets: ["latin-ext"], weight: "200" });
@@ -22,6 +23,8 @@ export default function RootLayout({
       <body className={poppins.className}>
         {children}
         <Toaster />
+        {/* vercel speed analytics */}
+        <SpeedInsights />
       </body>
     </html>
   );
