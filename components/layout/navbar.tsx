@@ -26,7 +26,7 @@ export function Navbar() {
       <header className="w-full h-24 transition-colors ease-linear delay-75 bg-transparent backdrop-blur-lg shadow-sm fixed z-50">
         <div className="h-full flex items-center justify-around">
           <div className="relative w-20 aspect-square flex items-center">
-            <h1 className="font-mono text-2xl font-extrabold">Chatwithdoc</h1>
+            <h1 className="font-mono text-2xl font-extrabold">Simplyanai</h1>
           </div>
           <nav>
             <ul className="flex items-center gap-5">
