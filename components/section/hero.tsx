@@ -15,7 +15,7 @@ export function Hero() {
           </p>
         </div>
         <div className="absolute bottom-10">
-          <Link href={"#tools-section"}>
+          <Link href={"#services-section"}>
             <div className="w-20 aspect-square flex justify-center items-center rounded-full bg-primary text-primary-foreground hover:bg-transparent hover:text-secondary-foreground border-2">
               <ArrowDown size={"2rem"} />
             </div>

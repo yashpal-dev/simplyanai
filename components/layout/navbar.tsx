@@ -36,7 +36,6 @@ export function Navbar() {
                     <Link href={item._link} className="text-xl font-bold">
                       {item.name}
                     </Link>
-                    tool
                   </li>
                 );
               })}
