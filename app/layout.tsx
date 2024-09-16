@@ -8,9 +8,9 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 const poppins = Poppins({ subsets: ["latin-ext"], weight: "200" });
 
 export const metadata: Metadata = {
-  title: "Chatwithdoc: An ultimate Chat App",
+  title: "Simplyanai: A collection of AI services",
   description:
-    "Chatwithdoc is a realtime question answering app, where you can upload a file and ask questions related to the uploaded document.",
+    "An AI powered web app consisting of a range of utilities to make your daily life easier. It helps you to simplify your work. ",
 };
 
 export default function RootLayout({
