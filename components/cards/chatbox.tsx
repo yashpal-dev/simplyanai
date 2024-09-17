@@ -16,16 +16,18 @@ export function Chatbox({ user, text, isAI }: Chatbox) {
   return (
     <Card
       className={clsx(
-        "px-4 py-1 md:py-2 w-full md:w-1/2 overflow-hidden border-none bg-accent/60",
-        isAI ? "justify-self-start" : "justify-self-end"
+        "px-4 py-1 md:py-2 border-none bg-accent/60 w-full",
+        isAI
+          ? "justify-self-start md:max-w-[60%]"
+          : "justify-self-end md:max-w-[40%]"
       )}
     >
-      <CardHeader className="px-0 py-1 md:py-2">
-        <CardTitle className="p-0 text-sm md:text-base xl:text-base wei text-primary">
+      <CardHeader className="text-primary-foreground bg-primary rounded-full px-2 py-0 max-w-min">
+        <CardTitle className="p-0 text-xs md:text-sm xl:text-sm">
           {user}
         </CardTitle>
       </CardHeader>
-      <CardContent className="px-0 py-3">
+      <CardContent className="px-0 py-1">
         <CardDescription className="text-primary text-sm md:text-base font-semibold text-start tracking-wider leading-loose text-wrap">
           {text}
         </CardDescription>

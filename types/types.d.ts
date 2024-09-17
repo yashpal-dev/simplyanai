@@ -10,4 +10,10 @@ type Chatbox = {
   isAI: boolean;
 };
 
+type Sidebar = {
+  fileName: string;
+  file: File | null;
+  handleFileRemove: () => void;
+};
+
 type Embedding = EmbeddingItem | MultipleEncodingsEmbeddingItem;

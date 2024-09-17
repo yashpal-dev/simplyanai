@@ -8,7 +8,7 @@ export async function getModelResponse(data: string, query: string) {
   const chatCompletion = await groq.chat.completions.create({
     messages: [
       {
-        role: "user",
+        role: "system",
         content: template,
       },
     ],
@@ -24,14 +24,16 @@ export async function getModelResponse(data: string, query: string) {
   return response.content;
 }
 
+// template for llm
 export function llmModelTemplate(data: string, query: string) {
   const template = `
-You are a question-answer chatbot, you will be given data and a question. You have to use that data for giving appropriate answer.
-In case you do not know answer or the data and the question does not match or you get special symbols or punctuation marks which do not have any specific meaning, return response you don't know."\n
+You are a knowledgeable assistant who can analyze and provide insights based on the information provided. If the question is not related to the provided data, respond by stating that the question is outside the scope of the data.
 
-Data : ${data}.\n
-Question : ${query};
-`;
+Here is the data:
+${data}.
+
+Based on the above data, answer the following question:
+${query}`;
 
   return template;
 }
