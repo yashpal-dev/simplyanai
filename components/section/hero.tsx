@@ -4,13 +4,13 @@ import { ArrowDown } from "lucide-react";
 export function Hero() {
   return (
     <section>
-      <div className="relative w-full min-h-screen flex flex-col items-center justify-center ">
+      <div className="px-2 pb-10 relative w-full min-h-screen flex flex-col items-center justify-center">
         <div className=" select-none">
           <h1 className="text-4xl md:text-6xl xl:text-7xl font-extrabold text-center text-secondary-foreground">
             Experience the age of AI
           </h1>
           <p className="text-sm xl:text-base text-center text-secondary-foreground/60 mt-2">
-            Experience the power, realm of the AI. And the unbelivable power
+            Experience the power, realm of the AI. And the unbelievable power
             which you need.
           </p>
         </div>
