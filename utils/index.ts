@@ -1,3 +1,4 @@
+import { getModelResponse, buggyTemplate } from "./ai-model";
 import { chunkText } from "./create-chunks";
 import { createEmbeddings } from "./embeddings";
 import { readFileContent } from "./readFileContent";
@@ -9,4 +10,6 @@ export {
   storeToVectorDB,
   chunkText,
   fetchFromVectorDB,
+  getModelResponse,
+  buggyTemplate,
 };

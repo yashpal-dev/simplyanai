@@ -1,6 +1,5 @@
 import { getIp, hashIp } from "@/helpers";
-import { createEmbeddings, fetchFromVectorDB } from "@/utils";
-import { getModelResponse } from "@/utils/ai-model";
+import { createEmbeddings, fetchFromVectorDB, getModelResponse } from "@/utils";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(req: NextRequest) {

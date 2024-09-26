@@ -5,7 +5,7 @@ export function Hero() {
   return (
     <section>
       <div className="px-2 pb-10 relative w-full min-h-screen flex flex-col items-center justify-center">
-        <div className=" select-none">
+        <div className=" select-none space-y-5">
           <h1 className="text-4xl md:text-6xl xl:text-7xl font-extrabold text-center text-secondary-foreground">
             Experience the age of AI
           </h1>

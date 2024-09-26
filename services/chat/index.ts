@@ -6,7 +6,7 @@ export const uploadPDF = async (formData: object, config: object) => {
 };
 
 export const sendQuery = async (query: string, fileName: string) => {
-  const res = await axios.post("api/chat/", {
+  const res = await axios.post("api/chat", {
     query: query,
     fileName: fileName,
   });
