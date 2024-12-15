@@ -2,7 +2,7 @@
 
 A collection of AI-powered web applications designed to make life simpler and more efficient. This project leverages the power of artificial intelligence to automate tasks, enhance productivity, and provide creative tools for users.
 
-Website: [Your Website URL](simplyanai.vercel.app/)
+Website: [Simplyanai](https://simplyanai.vercel.app/)
 
 ## Features
 - **Multiple AI Applications**: Includes a variety of AI apps aimed at different use cases, from productivity tools to creative solutions.
@@ -11,6 +11,7 @@ Website: [Your Website URL](simplyanai.vercel.app/)
 - **Responsive Design**: Fully responsive layout for seamless experience across all devices.
 
 ## Technology Stack
-- **Frontend**: Next.js (React framework)
-- **Backend**: (If applicable, mention your backend technologies here)
-- **AI Services**: Integration with various AI APIs (mention any specific AI technologies you are using)
+- **Frontend**: Next.js is used as the frontend.
+- **Backend**: Next.js is used as the backed.
+- **Database**: Pinecone is used as the vector database, to perform similarity search and querying records.
+- **Backend**: Llama 3.1 model is used for processing and summarizing data.
