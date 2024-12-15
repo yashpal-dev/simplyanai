@@ -22,13 +22,15 @@ export function Services() {
 
 const services: Services[] = [
   {
-    title: "Chatwithdoc: AI",
-    description: "Upload a document and let AI asnwer your queries.",
+    title: "Chatwithdoc: Chat App",
+    description:
+      "Upload a text or pdf document, ask questions and get answers.",
     url: "/upload",
   },
   {
     title: "Buggy: Bug Fixer",
-    description: "Fix bugs and syntax errors from the code.",
+    description:
+      "Buggy is a code error fixer. Fix errors and bugs from your code.",
     url: "/buggy",
   },
 ];

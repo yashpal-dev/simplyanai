@@ -27,9 +27,9 @@ export function Dropdown({ language, handleSelect }: any) {
           {language}
 
           {visible ? (
-            <ChevronDown size={"1rem"} />
-          ) : (
             <ChevronUp size={"1rem"} />
+          ) : (
+            <ChevronDown size={"1rem"} />
           )}
         </Button>
       </DropdownMenuTrigger>
