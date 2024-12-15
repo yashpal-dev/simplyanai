@@ -10,7 +10,7 @@ import {
 export function ServiceCard({ title, description, url }: Services) {
   return (
     <>
-      <Card className="w-full h-full p-10">
+      <Card className="w-full h-full p-10 flex">
         <CardContent className="flex flex-col justify-center items-center gap-4">
           <CardTitle className="text-2xl font-semibold text-secondary-foreground">
             {title}
@@ -18,7 +18,7 @@ export function ServiceCard({ title, description, url }: Services) {
           <CardDescription className="text-sm text-secondary-foreground/60 text-center">
             {description}
           </CardDescription>
-          <CardFooter className="px-5 py-2 rounded-sm bg-primary flex hover:bg-transparent text-primary-foreground hover:text-primary border-2 border-border">
+          <CardFooter className="px-5 py-2 rounded-sm bg-primary justify-end hover:bg-transparent text-primary-foreground hover:text-primary border-2 border-border">
             <Link href={url}>
               <span className="">Try Now</span>
             </Link>
