@@ -11,7 +11,7 @@ import Head from "next/head";
 import CopyToClipboard from "@/components/ui/copy-to-clipboard";
 
 export default function BuggyContainer() {
-  const [value, setValue] = useState("Welcome");
+  const [value, setValue] = useState("Happy Coding!");
   const [language, setLanguage] = useState("python");
   const [fetching, setFetching] = useState(false);
 
@@ -69,8 +69,6 @@ export default function BuggyContainer() {
             </div>
 
             <Editor
-              //   height="70vh"
-              //   width="100%"
               className="my-2 w-full h-full"
               theme="vs-dark"
               language={language}
