@@ -69,7 +69,7 @@ ${query}`;
 export function buggyTemplate(data: string, language: string) {
   const template =
     `
-  You are a code fixer and formatter. You will be given a code snippet that may contain syntax errors, incorrect variable declarations and logical errors. Your task is to fix these issues and return the corrected code.
+  You are a code fixer and formatter. You will be given a code snippet that may contain syntax errors, incorrect variable declarations and logical errors. Your task is to fix these issues and return the corrected code. If you do not understand code simply return json object {codeSnippet":"Sorry i cannot parse the code.", "changed":""}}
   The JSON should be in the format: {"codeSnippet":"Here come's the corrected code with proper formatting", "changed":"description of changes made in code"}}
   You have to only return JSON object.
   

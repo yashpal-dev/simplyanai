@@ -7,23 +7,49 @@ export async function POST(req: NextRequest) {
   const data = await req.json();
   const { codeSnippet, language } = data;
 
+  const maxLimit = 5;
+  let flag = true; //
+  let iterations = 0; // track the number of time loop runs
+
+  // default result
+  let result = { codeSnippet: codeSnippet, changed: "" };
+
   try {
-    console.error("typeof obj");
+    while (flag && iterations < maxLimit) {
+      const llmResponse = (await getBuggyResponse(codeSnippet, language)) || "";
+      // console.warn(llmResponse);
 
-    const llmResponse = (await getBuggyResponse(codeSnippet, language)) || "";
-    console.warn(llmResponse);
+      const obj = isValidJSON(llmResponse);
+      if (obj !== false) {
+        flag = false;
+        result = obj;
+      }
 
-    const obj = JSON.parse(llmResponse);
+      iterations += 1;
+    }
 
     return res.json(
-      { success: true, fixedCode: obj.codeSnippet, description: obj.changed },
+      {
+        success: true,
+        fixedCode: result.codeSnippet,
+        description: result.changed,
+      },
       { status: 200 }
     );
   } catch (error) {
-    console.error(error);
+    // console.error(error);
     return res.json(
       { success: false, error: "Please try again" },
       { status: 200 }
     );
+  }
+}
+
+function isValidJSON(str: string) {
+  try {
+    let obj = JSON.parse(str);
+    return obj;
+  } catch (e) {
+    return false;
   }
 }
