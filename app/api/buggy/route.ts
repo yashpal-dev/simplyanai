@@ -37,7 +37,7 @@ export async function POST(req: NextRequest) {
       { status: 200 }
     );
   } catch (error) {
-    // console.error(error);
+     console.error(error);
     return res.json(
       { success: false, error: "Please try again" },
       { status: 200 }

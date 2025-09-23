@@ -1,56 +1,53 @@
 import { createFileId } from "@/helpers";
-import { Pinecone } from "@pinecone-database/pinecone";
+import { Index } from "@upstash/vector";
 
-//@ts-ignore
-const pc = new Pinecone({ apiKey: process.env.PINECONE_API_KEY });
-const pcIndex = pc.index("chatbot");
+// Initialize Upstash Vector index
+const index = new Index({
+  url: process.env.UPSTASH_VECTOR_REST_URL!,
+  token: process.env.UPSTASH_VECTOR_REST_TOKEN!,
+});
 
-// insert records in database
 export async function storeToVectorDB(
-  embeddings: Embedding,
-  fileData: string,
+  chunks: string[],
   fileName: string,
-  hashedIp: string,
-  index: number
+  hashedIp: string
 ) {
-  const fileId = createFileId(hashedIp, fileName, index);
   const uniqueKey = hashedIp + fileName;
 
   try {
-    await pcIndex.namespace("cb1").upsert([
-      {
-        id: fileId,
-        values: embeddings,
-        metadata: {
-          data: fileData,
-          key: uniqueKey,
-        },
+    const dataToUpsert = chunks.map((chunk, idx) => ({
+      id: createFileId(hashedIp, fileName, idx + 1),
+      data: chunk,
+      metadata: {
+        data: chunk,
+        key: uniqueKey,
+        fileName: fileName,
+        chunkIndex: idx,
       },
-    ]);
+    }));
+
+    await index.upsert(dataToUpsert);
   } catch (error: any) {
     throw new Error(error);
   }
 }
 
-// fetch records from database
 export async function fetchFromVectorDB(
-  embeddings: Embedding,
+  queryText: string,
   hashedIp: string,
   fileName: string
 ) {
   const uniqueKey = hashedIp + fileName;
 
-  const response = await pcIndex.namespace("cb1").query({
-    vector: embeddings,
+  const response = await index.query({
+    data: queryText,
     topK: 2,
     includeMetadata: true,
-    filter: {
-      key: { $eq: uniqueKey },
-    },
+    filter: `key = '${uniqueKey}'`,
   });
 
   let records = "";
-  for (const obj of response.matches) {
+  for (const obj of response) {
     records += obj.metadata?.data + "\n";
   }
   return records;

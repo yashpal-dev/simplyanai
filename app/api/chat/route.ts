@@ -1,5 +1,5 @@
 import { getIp, hashIp } from "@/helpers";
-import { createEmbeddings, fetchFromVectorDB, getModelResponse } from "@/utils";
+import { fetchFromVectorDB, getModelResponse } from "@/utils";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(req: NextRequest) {
@@ -12,12 +12,7 @@ export async function POST(req: NextRequest) {
   const hashedIp = hashIp(ip);
 
   try {
-    const embeddings = await createEmbeddings(query);
-    const fetchRecords = await fetchFromVectorDB(
-      embeddings,
-      hashedIp,
-      fileName
-    );
+    const fetchRecords = await fetchFromVectorDB(query, hashedIp, fileName);
 
     const answer = await getModelResponse(fetchRecords, query);
 

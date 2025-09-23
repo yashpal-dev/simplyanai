@@ -3,16 +3,24 @@ const groq = new Groq({ apiKey: process.env.GROQ_API_KEY });
 
 export async function getModelResponse(data: string, query: string) {
   // template for  model
-  const template = llmModelTemplate(data, query);
 
   const chatCompletion = await groq.chat.completions.create({
     messages: [
       {
         role: "system",
-        content: template,
+        content: CHATBOT_PROMPT,
+      },
+      {
+        role: "user",
+        content: `
+        Here is the data:
+        ${data}.
+
+        Based on the above data, answer the following question:
+        ${query}`,
       },
     ],
-    model: "llama3-8b-8192",
+    model: "openai/gpt-oss-120b",
     temperature: 1,
     max_tokens: 1024,
     top_p: 1,
@@ -26,16 +34,22 @@ export async function getModelResponse(data: string, query: string) {
 
 export async function getBuggyResponse(code: string, language: string) {
   // template for  model
-  const template = buggyTemplate(code, language);
 
   const chatCompletion = await groq.chat.completions.create({
     messages: [
       {
         role: "system",
-        content: template,
+        content: BUGGY_PROMPT,
+      },
+      {
+        role: "user",
+        content: `
+              Language: ${language}
+              Here is the Code snippet:
+              ${code}`,
       },
     ],
-    model: "llama3-8b-8192",
+    model: "openai/gpt-oss-120b",
     // model: "llama-3.1-70b-versatile",
     temperature: 1,
     max_tokens: 5024,
@@ -53,32 +67,15 @@ export async function getBuggyResponse(code: string, language: string) {
 }
 
 // template for llm
-export function llmModelTemplate(data: string, query: string) {
-  const template = `
+const CHATBOT_PROMPT = `
 You are a knowledgeable assistant who can analyze and provide insights based on the information provided. If the question is not related to the provided data, respond by stating that the question is outside the scope of the data.
+`;
 
-Here is the data:
-${data}.
-
-Based on the above data, answer the following question:
-${query}`;
-
-  return template;
-}
-
-export function buggyTemplate(data: string, language: string) {
-  const template =
-    `
+const BUGGY_PROMPT = `
   You are a code fixer and formatter. You will be given a code snippet that may contain syntax errors, incorrect variable declarations and logical errors. Your task is to fix these issues and return the corrected code. If you do not understand code simply return json object {codeSnippet":"Sorry i cannot parse the code.", "changed":""}}
   The JSON should be in the format: {"codeSnippet":"Here come's the corrected code with proper formatting", "changed":"description of changes made in code"}}
   You have to only return JSON object.
-  
-  Language: ${language}
-  Here is the Code snippet:
-  ${data}` + "\n```json";
-
-  return template;
-}
+  `;
 
 // `
 // You are a code fixer and formatter. You will be given a code snippet that may contain syntax errors, incorrect variable declarations and logical errors. Your task is to fix these issues and return the corrected code.

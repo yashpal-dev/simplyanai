@@ -1,18 +1,16 @@
 import { NextRequest, NextResponse } from "next/server";
 import path from "path";
 import fs from "fs/promises";
-import {
-  chunkText,
-  createEmbeddings,
-  readFileContent,
-  storeToVectorDB,
-} from "@/utils";
+import { chunkText, readFileContent, storeToVectorDB } from "@/utils";
 import {
   checkIfFileExists,
   getIp,
   hashIp,
   supportedFileFormat,
 } from "@/helpers";
+
+// longer timeout for file upload
+export const maxDuration = 60;
 
 export const POST = async (req: NextRequest) => {
   const res = NextResponse;
@@ -73,13 +71,11 @@ export const POST = async (req: NextRequest) => {
     const ip = getIp(forwardedFor);
     const hashedIp = hashIp(ip);
 
-    // array of tokenized text
+    // array of tokenized text chunks
     const chunks = chunkText(fileData, 500);
-    for (let i = 0; i < chunks.length; i++) {
-      const embeddings = await createEmbeddings(fileData);
 
-      await storeToVectorDB(embeddings, fileData, fileName, hashedIp, i + 1);
-    }
+    // Pass chunks directly to Upstash Vector - it will handle embedding generation automatically
+    await storeToVectorDB(chunks, fileName, hashedIp);
 
     // remove redundant file
     const fileExists = await checkIfFileExists(filePath);

@@ -9,9 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@mixedbread-ai/sdk": "^2.2.11",
     "@monaco-editor/react": "^4.6.0",
-    "@pinecone-database/pinecone": "^3.0.3",
     "@radix-ui/react-alert-dialog": "^1.0.5",
     "@radix-ui/react-avatar": "^1.0.4",
     "@radix-ui/react-dropdown-menu": "^2.1.1",
@@ -19,6 +17,7 @@
     "@radix-ui/react-progress": "^1.0.3",
     "@radix-ui/react-slot": "^1.0.2",
     "@radix-ui/react-toast": "^1.1.5",
+    "@upstash/vector": "^1.2.2",
     "@vercel/speed-insights": "^1.0.12",
     "axios": "^1.6.7",
     "class-variance-authority": "^0.7.0",
