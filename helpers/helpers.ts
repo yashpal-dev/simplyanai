@@ -32,6 +32,7 @@ export async function checkIfFileExists(filePath: string) {
 
     return true;
   } catch (error) {
+    // if file does not exist, return false
     return false;
   }
 }
