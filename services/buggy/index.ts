@@ -6,6 +6,7 @@ export async function sendCode(codeSnippet: string, language: string) {
       codeSnippet,
       language,
     });
+
     return res.data;
   } catch (error: any) {
     console.log(error);

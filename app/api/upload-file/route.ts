@@ -37,7 +37,7 @@ export const POST = async (req: NextRequest) => {
     );
   }
 
-  const buffer = Buffer.from(await file.arrayBuffer());
+  const buffer = Buffer.from(await file.arrayBuffer()) as unknown as string;
 
   const isProduction = process.env.NODE_ENV === "production";
   const pathName = isProduction

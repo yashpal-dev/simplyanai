@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
 
-export default function CopyToClipboard({ text }: { text: string }) {
+export function CopyToClipboard({ text }: { text: string }) {
   const [copied, setCopied] = useState(false);
 
   function handleCopyToClipboard(text: string) {

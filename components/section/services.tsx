@@ -1,16 +1,28 @@
 import { ServiceCard } from "@/components/cards";
+import { Service } from "@/types";
+import { Bug, FileText } from "lucide-react";
 
 export function Services() {
   return (
     <section
       id="services-section"
-      className="w-full min-h-screen flex flex-col pt-10 lg:pt-20 pb-10 gap-y-10"
+      className="w-full min-h-screen py-16 sm:py-20 lg:py-24 bg-background"
     >
-      <h2 className="text-3xl font-bold text-center text-secondary-foreground">
-        Services
-      </h2>
-      <div className="w-full px-2 py-20">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 place-items-center gap-x-5 gap-y-8 max-w-screen-xl mx-auto">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Section Header */}
+        <div className="text-center mb-16 sm:mb-20">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light leading-tight tracking-tight text-foreground mb-6">
+            Our{" "}
+            <span className="font-mono font-bold text-primary">Services</span>
+          </h2>
+          <p className="text-base sm:text-lg lg:text-xl max-w-2xl mx-auto leading-relaxed font-light text-muted-foreground">
+            Discover our AI-powered tools designed to enhance your productivity
+            and streamline your workflow.
+          </p>
+        </div>
+
+        {/* Services Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
           {services.map((service, index) => (
             <ServiceCard {...service} key={index} />
           ))}
@@ -20,17 +32,19 @@ export function Services() {
   );
 }
 
-const services: Services[] = [
+const services: Service[] = [
   {
-    title: "Chatwithdoc: Chat App",
+    title: "Chatwithdoc",
     description:
-      "Upload a text or pdf document, ask questions and get answers.",
+      "Upload text or PDF documents and have intelligent conversations with your content. Ask questions, get summaries, and extract insights instantly.",
     url: "/upload",
+    icon: FileText,
   },
   {
-    title: "Buggy: Bug Fixer",
+    title: "Buggy",
     description:
-      "Buggy is a code error fixer. Fix errors and bugs from your code.",
+      "AI-powered code error detection and fixing. Upload your code and get instant solutions to bugs, errors, and optimization suggestions.",
     url: "/buggy",
+    icon: Bug,
   },
 ];

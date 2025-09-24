@@ -34,6 +34,36 @@
     --ring: 215 20.2% 65.1%;
 
     --radius: 0.5rem;
+
+    /* Hero Section Color System */
+    --hero-bg-primary: 0 0% 100%;
+    --hero-bg-secondary: 210 40% 98%;
+    --hero-bg-accent: 210 40% 96%;
+    --hero-bg-pattern: 240 10% 4%;
+
+    --hero-text-primary: 240 10% 4%;
+    --hero-text-secondary: 215.4 16.3% 46.9%;
+    --hero-text-muted: 215.4 16.3% 60%;
+    --hero-text-accent: 240 10% 4%;
+
+    --hero-brand-bg: 210 40% 96%;
+    --hero-brand-text: 215.4 16.3% 46.9%;
+    --hero-brand-dot: 240 10% 4%;
+
+    --hero-cta-primary: 240 10% 4%;
+    --hero-cta-primary-hover: 240 10% 8%;
+    --hero-cta-text: 210 40% 98%;
+    --hero-cta-border: 240 10% 4%;
+
+    --hero-scroll-bg: 210 40% 96%;
+    --hero-scroll-bg-hover: 210 40% 90%;
+    --hero-scroll-border: 240 10% 4%;
+    --hero-scroll-border-hover: 240 10% 4%;
+    --hero-scroll-text: 240 10% 4%;
+
+    --hero-pattern-opacity: 0.05;
+    --hero-blur-opacity: 0.2;
+    --hero-backdrop-blur: 8px;
   }
 
   .dark {
@@ -64,6 +94,36 @@
     --border: 0 0% 14.9%;
     --input: 0 0% 14.9%;
     --ring: 0 0% 83.1%;
+
+    /* Dark mode hero colors */
+    --hero-bg-primary: 0 0% 3.9%;
+    --hero-bg-secondary: 0 0% 7%;
+    --hero-bg-accent: 0 0% 14.9%;
+    --hero-bg-pattern: 0 0% 98%;
+
+    --hero-text-primary: 0 0% 98%;
+    --hero-text-secondary: 0 0% 63.9%;
+    --hero-text-muted: 0 0% 70%;
+    --hero-text-accent: 0 0% 98%;
+
+    --hero-brand-bg: 0 0% 14.9%;
+    --hero-brand-text: 0 0% 63.9%;
+    --hero-brand-dot: 0 0% 98%;
+
+    --hero-cta-primary: 0 0% 98%;
+    --hero-cta-primary-hover: 0 0% 90%;
+    --hero-cta-text: 0 0% 9%;
+    --hero-cta-border: 0 0% 14.9%;
+
+    --hero-scroll-bg: 0 0% 14.9%;
+    --hero-scroll-bg-hover: 0 0% 20%;
+    --hero-scroll-border: 0 0% 14.9%;
+    --hero-scroll-border-hover: 0 0% 98%;
+    --hero-scroll-text: 0 0% 98%;
+
+    --hero-pattern-opacity: 0.1;
+    --hero-blur-opacity: 0.3;
+    --hero-backdrop-blur: 12px;
   }
 }
 

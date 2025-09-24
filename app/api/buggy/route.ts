@@ -17,7 +17,6 @@ export async function POST(req: NextRequest) {
   try {
     while (flag && iterations < maxLimit) {
       const llmResponse = (await getBuggyResponse(codeSnippet, language)) || "";
-      // console.warn(llmResponse);
 
       const obj = isValidJSON(llmResponse);
       if (obj !== false) {
@@ -37,7 +36,7 @@ export async function POST(req: NextRequest) {
       { status: 200 }
     );
   } catch (error) {
-     console.error(error);
+    console.error(error);
     return res.json(
       { success: false, error: "Please try again" },
       { status: 200 }

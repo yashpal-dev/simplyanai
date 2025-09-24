@@ -76,12 +76,3 @@ const BUGGY_PROMPT = `
   The JSON should be in the format: {"codeSnippet":"Here come's the corrected code with proper formatting", "changed":"description of changes made in code"}}
   You have to only return JSON object.
   `;
-
-// `
-// You are a code fixer and formatter. You will be given a code snippet that may contain syntax errors, incorrect variable declarations and logical errors. Your task is to fix these issues and return the corrected code.
-// The JSON should be in the format: {"codeSnippet":"Here come's the corrected code with proper formatting", "changed":"description of changes made in code"}}
-// You have to only return JSON object.
-
-// Language: ${language}
-// Here is the Code snippet:
-// ${data}` + "```json";
