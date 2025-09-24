@@ -8,17 +8,9 @@ import {
 } from "@/components/ui/chat";
 import { Sidebar } from "@/components/ui/chat";
 import { sendQuery } from "@/services/chat";
-
 import Head from "next/head";
 import { useEffect, useRef, useState } from "react";
 import { ChatboxProps } from "@/types";
-import { Metadata } from "next";
-
-export const metadata: Metadata = {
-  title: "Chatwithdoc: AI chat app",
-  description:
-    "Chatwithdoc is an AI-powered chat application that allows you to interact with your documents. Upload a file and ask questions to get instant, intelligent answers.",
-};
 
 export default function Page() {
   const [file, setFile] = useState<File | null>(null);
@@ -95,6 +87,9 @@ export default function Page() {
 
   return (
     <>
+      <Head>
+        <title>Chatwithdoc: AI chat app</title>
+      </Head>
       <main className="min-h-screen bg-background">
         {/* Mobile Header */}
         <MobileHeader file={file} onFileRemove={handleFileRemove} />
